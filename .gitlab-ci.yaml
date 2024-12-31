@@ -1,0 +1,18 @@
+stages:
+    - build
+
+variables:
+    APP_NAME: nodejs
+    IMAGE_TAG: registry.gitlab.com/willie98/node-devops-project/$APP_NAME:$CI_COMMIT_SHORT_SHA
+
+
+build_image:
+  image: docker
+  stage: build
+  services:
+    - docker:dind
+  # IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
