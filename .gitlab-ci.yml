@@ -42,7 +42,8 @@ helm:
       
   script:
     # Update Image TAG
-     - sed -i "s/nodejs:.*/nodejs:${CI_COMMIT_SHORT_SHA}/g" values.yaml
-     - git add values.yaml
-     - git commit -am "Update Image"
-     - git push origin main
+    - sed -i "s/nodejs:.*/nodejs:${CI_COMMIT_SHORT_SHA}/g" values.yaml
+    - git add values.yaml
+    - git diff --cached --quiet || git commit -m "Update Image"
+    - BRANCH=$(git symbolic-ref --short HEAD)
+    - git push origin $BRANCH || echo "Push failed, check permissions or conflicts."
