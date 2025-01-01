@@ -42,7 +42,7 @@ helm:
       
   script:
     # Update Image TAG
-     - sed -i "s/nodejs:.*/nodejs:${CI_COMMIT_SHORT_SHA}/g" values.yaml
+     - sed -i "s/nodejs:.*/nodejs:${CI_COMMIT_SHORT_SHA}/g" node-devops-project/values.yaml
      - git add node-devops-project/values.yaml
      - git commit -am "Update Image"
      - git push
