@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: registry.gitlab.com/willie98/node-devops-project/nodejs:539570d2
+  repository: registry.gitlab.com/willie98/node-devops-project/nodejs:cee58686
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
