@@ -36,8 +36,8 @@ helm:
       - git config --global user.email "mohamedwaleed2912@gmail.com"
       - git config --global user.name "willie98"
       - git clone git@gitlab.com:willie98/node-devops-project.git
-      #- ls -latr
-     # - cd node-devops-project/
+      - ls -latr
+      - cd node-devops-project/
       - ls -latr
       
   script:
