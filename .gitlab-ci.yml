@@ -31,7 +31,7 @@ helm:
         # run ssh-agent
       - eval $(ssh-agent -s)
         # add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
-      - echo "$SSH_PRIVATE_KEY" | tr -d  | ssh-add -  
+      - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -  
       # Git
       - git config --global user.email "mohamedwaleed2912@gmail.com"
       - git config --global user.name "willie98"
